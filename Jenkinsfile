@@ -4,17 +4,17 @@ agent any
 
 stages{
 
-stage('Name of stage') {
+stage('git clone') {
 
 steps{
 
-git branch: "main", URL: 'https://github.com/erwansistandi/react_django_demo_app.git'
+git branch: "main", url: 'https://github.com/erwansistandi/react_django_demo_app.git'
 
 }
 
 }
 
-stage{
+stage ('testing'){
 
 steps{
 
@@ -24,7 +24,7 @@ echo "Testing"
 
 }
 
-stage{
+stage('build'){
 
 steps{
 
@@ -38,7 +38,7 @@ sh "docker build - no-cache -t react_django_demo_app ."
 
 }
 
-stage{
+stage('docker run'){
 
 steps{
 
